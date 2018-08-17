@@ -1,0 +1,10 @@
+
+ToDo
+
+- First
+    - Removes methods from ViewController and uses delegates instead
+    - KVO
+    - Abstracts methods to receive any kind of objects
+
+- Second
+    - Puts all entities to external framework
