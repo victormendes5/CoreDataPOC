@@ -8,6 +8,11 @@
 
 import Foundation
 
+public protocol CoreDataListManagerProtocol: class {
+    func retrievePokesList()
+    func requestPokes()
+}
+
 public protocol CoreDataSaveManagerProtocol: class {
     func onPokesRetrieved(_ names: [PokemonListModel])
     func savePokes(poke: PokemonListModel) throws

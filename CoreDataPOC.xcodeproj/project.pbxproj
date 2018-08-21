@@ -22,8 +22,7 @@
 		A22540722127525400865426 /* PersistenceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22540712127525400865426 /* PersistenceError.swift */; };
 		A24823DE212B57FA00C99EB0 /* Pokemon+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24823DD212B57FA00C99EB0 /* Pokemon+CoreDataProperties.swift */; };
 		A24823E0212B6D6000C99EB0 /* TableViewController+Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24823DF212B6D6000C99EB0 /* TableViewController+Messages.swift */; };
-		A24823E2212B711E00C99EB0 /* TableViewController+CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24823E1212B711E00C99EB0 /* TableViewController+CoreDataManager.swift */; };
-		A24823E4212B718800C99EB0 /* TableViewController+Moya.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24823E3212B718800C99EB0 /* TableViewController+Moya.swift */; };
+		A24823E2212B711E00C99EB0 /* TableViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24823E1212B711E00C99EB0 /* TableViewController+Delegate.swift */; };
 		A24823E6212C501F00C99EB0 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24823E5212C501F00C99EB0 /* Equatable.swift */; };
 		A251D26C2127718C004686AC /* PokesListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A251D26B2127718C004686AC /* PokesListProtocol.swift */; };
 		A251D26E212778C9004686AC /* ToDo in Resources */ = {isa = PBXBuildFile; fileRef = A251D26D212778C9004686AC /* ToDo */; };
@@ -49,8 +48,7 @@
 		A22540712127525400865426 /* PersistenceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceError.swift; sourceTree = "<group>"; };
 		A24823DD212B57FA00C99EB0 /* Pokemon+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Pokemon+CoreDataProperties.swift"; path = "/Users/jmendes/Git/CoreDataPOC/CoreDataPOC/Entities/Pokemon/Pokemon+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		A24823DF212B6D6000C99EB0 /* TableViewController+Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewController+Messages.swift"; sourceTree = "<group>"; };
-		A24823E1212B711E00C99EB0 /* TableViewController+CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewController+CoreDataManager.swift"; sourceTree = "<group>"; };
-		A24823E3212B718800C99EB0 /* TableViewController+Moya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewController+Moya.swift"; sourceTree = "<group>"; };
+		A24823E1212B711E00C99EB0 /* TableViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewController+Delegate.swift"; sourceTree = "<group>"; };
 		A24823E5212C501F00C99EB0 /* Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		A251D26B2127718C004686AC /* PokesListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokesListProtocol.swift; sourceTree = "<group>"; };
 		A251D26D212778C9004686AC /* ToDo */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDo; sourceTree = "<group>"; };
@@ -104,8 +102,7 @@
 				A22540482127020700865426 /* LaunchScreen.storyboard */,
 				A22540402127020600865426 /* Main.storyboard */,
 				A22540512127051800865426 /* TableViewController.swift */,
-				A24823E3212B718800C99EB0 /* TableViewController+Moya.swift */,
-				A24823E1212B711E00C99EB0 /* TableViewController+CoreDataManager.swift */,
+				A24823E1212B711E00C99EB0 /* TableViewController+Delegate.swift */,
 				A24823DF212B6D6000C99EB0 /* TableViewController+Messages.swift */,
 				A22540752127537B00865426 /* Resources */,
 				A251D26D212778C9004686AC /* ToDo */,
@@ -310,11 +307,10 @@
 				A24823E6212C501F00C99EB0 /* Equatable.swift in Sources */,
 				A22540722127525400865426 /* PersistenceError.swift in Sources */,
 				A2254054212705B200865426 /* Requests.swift in Sources */,
-				A24823E4212B718800C99EB0 /* TableViewController+Moya.swift in Sources */,
 				A225406F2127515800865426 /* AbstractionModel.swift in Sources */,
 				A2254069212747DF00865426 /* CoreDataStore.swift in Sources */,
 				A22540672127320000865426 /* PokemonListModel.swift in Sources */,
-				A24823E2212B711E00C99EB0 /* TableViewController+CoreDataManager.swift in Sources */,
+				A24823E2212B711E00C99EB0 /* TableViewController+Delegate.swift in Sources */,
 				A22540522127051800865426 /* TableViewController.swift in Sources */,
 				A22540452127020600865426 /* CoreDataPOC.xcdatamodeld in Sources */,
 				A225406C21274A1E00865426 /* Pokemon+CoreDataClass.swift in Sources */,

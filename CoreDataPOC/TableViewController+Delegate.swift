@@ -1,5 +1,5 @@
 //
-//  TableViewController+CoreDataManager.swift
+//  TableViewController+Delegate.swift
 //  CoreDataPOC
 //
 //  Created by João Mendes | Stone on 20/08/18.
@@ -8,22 +8,46 @@
 
 import Foundation
 import CoreData
+import Moya
 
-extension TableViewController {
+// MARK: - Manager list
+
+extension TableViewController: CoreDataListManagerProtocol {
     
-    // MARK: - Manager list
-    
-    func retrievePokesList() {
+    public func retrievePokesList() {
         do {
             if let pokemonList = try loadDelegate?.loadPokes() {
                 let list = pokemonList.map() {
                     return PokemonListModel(id: Int($0.id), name: $0.name!)
                 }
-                pokemonList.isEmpty == true ? requestPokes() : loadDelegate?.didRetrievePokes(list)
+                pokemonList.isEmpty == true ? listDelegate?.requestPokes() : loadDelegate?.didRetrievePokes(list)
             }
         } catch let error {
             print(error)
         }
+    }
+    
+    public func requestPokes() {
+        let provider = MoyaProvider<Requests>()
+        provider.request(.pokemon) { (result) in
+            switch result {
+            case .success(let response):
+                let decoder = JSONDecoder()
+                do {
+                    let decode = try decoder.decode(AbstractionModel<PokemonListModel>.self, from: response.data)
+                    self.pokemonList = decode.results
+                    self.cleanDelegate?.onCleanCoreDataEntity()
+                    self.saveDelegate?.onPokesRetrieved(decode.results)
+                    self.tableView.reloadData()
+                    
+                } catch let fail {
+                    print(fail)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
     }
     
 }
