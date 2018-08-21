@@ -7,110 +7,25 @@
 //
 
 import UIKit
-import Moya
-import CoreData
 
 public class TableViewController: UITableViewController {
 
     var pokemonList: [PokemonListModel]!
-
+    
+    weak var saveDelegate: CoreDataSaveManagerProtocol?
+    weak var loadDelegate: CoreDataLoadManagerProtocol?
+    weak var cleanDelegate: CoreDataCleanManagerProtocol?
+    
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        saveDelegate = self
+        loadDelegate = self
+        cleanDelegate = self
+        
         retrievePokesList()
     }
     
-    func requestPokes() {
-        let provider = MoyaProvider<Requests>()
-        provider.request(.pokemon) { (result) in
-            switch result {
-            case .success(let response):
-                let decoder = JSONDecoder()
-                do {
-                    let decode = try decoder.decode(AbstractionModel<PokemonListModel>.self, from: response.data)
-                    self.pokemonList = decode.results
-                    self.onPokesRetrieved(decode.results)
-                    self.tableView.reloadData()
-                } catch let fail {
-                    print(fail)
-                }
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    // MARK: - Manager list
-    
-    func retrievePokesList() {
-        
-        let fetchRequest: NSFetchRequest<Pokemon> = Pokemon.fetchRequest()
-        
-        do {
-            if let pokemonList = try CoreDataStore.shared.managedObjectContext?.fetch(fetchRequest) {
-                
-                let list = pokemonList.map() {
-                    return PokemonListModel(name: $0.name!)
-                }
-                
-                pokemonList.isEmpty == true ? requestPokes() : didRetrievePokes(list)
-                
-            }
-        } catch let error {
-            print(error)
-        }
-        
-    }
-    
-    // MARK: - Core data aux manager
-    
-    func didRetrievePokes(_ pokes: [PokemonListModel]) {
-        self.pokemonList = pokes
-        tableView.reloadData()
-    }
-    
-    func onPokesRetrieved(_ names: [PokemonListModel]) {
-        
-        for name in names {
-            do {
-                try savePokes(poke: name)
-            } catch let error {
-                print(error)
-            }
-        }
-        
-    }
-    
-    // MARK: - Core data manager
-    
-    func loadPokes() throws -> [Pokemon]  {
-        
-        guard let managedOC = CoreDataStore.shared.managedObjectContext else {
-            throw PersistenceError.managedObjectContextNotFound
-        }
-        
-        let request: NSFetchRequest<Pokemon> = NSFetchRequest(entityName: String(describing: Pokemon.self))
-        
-        return try managedOC.fetch(request)
-        
-    }
-    
-    func savePokes(poke: PokemonListModel) throws {
-        
-        guard let managedOC = CoreDataStore.shared.managedObjectContext else {
-            throw PersistenceError.managedObjectContextNotFound
-        }
-        
-        if let newPoke = NSEntityDescription.entity(forEntityName: "Pokemon", in: managedOC) {
-            let pokemon = Pokemon(entity: newPoke, insertInto: managedOC)
-            pokemon.name = poke.name
-            try managedOC.save()
-        }
-        
-        throw PersistenceError.couldNotSaveObject
-        
-    }
-
     // MARK: - Table view data source
 
     override public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

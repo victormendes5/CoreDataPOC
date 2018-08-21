@@ -8,12 +8,17 @@
 
 import Foundation
 
-public protocol CoreDataManagerProtocol: class {
-    func loadPokes()
+public protocol CoreDataSaveManagerProtocol: class {
+    func onPokesRetrieved(_ names: [PokemonListModel])
     func savePokes(poke: PokemonListModel) throws
 }
 
-public protocol CoreDataAuxManagerProtocol: class {
+public protocol CoreDataLoadManagerProtocol: class {
     func didRetrievePokes(_ pokes: [PokemonListModel])
-    func onPokesRetrieved(_ names: [PokemonListModel])
+    func loadPokes() throws -> [Pokemon]
+}
+
+public protocol CoreDataCleanManagerProtocol: class {
+    func onCleanCoreDataEntity()
+    func cleanCoreDataEntity() throws
 }

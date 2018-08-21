@@ -5,22 +5,32 @@ PODS:
   - Moya/Core (11.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
+  - PKHUD (5.1.0)
   - Result (3.2.4)
+  - SwiftMessages (4.1.4):
+    - SwiftMessages/App (= 4.1.4)
+  - SwiftMessages/App (4.1.4)
 
 DEPENDENCIES:
   - Moya
+  - PKHUD (~> 5.0)
+  - SwiftMessages
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Moya
+    - PKHUD
     - Result
+    - SwiftMessages
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   Moya: a725035953bc1c0eb1be505ab903984501d82440
+  PKHUD: 62ea46a1e88c4def1da784878d199bb54c841e3c
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  SwiftMessages: 2c33fdee8b8f38dfc7e1036684456b505891da8c
 
-PODFILE CHECKSUM: 7eaf3524be0935e19f61b9e6c1b30355bd68dd16
+PODFILE CHECKSUM: 2d1396fc94ae5a24a056ca0f9ebaa5122fcf1a62
 
 COCOAPODS: 1.5.3

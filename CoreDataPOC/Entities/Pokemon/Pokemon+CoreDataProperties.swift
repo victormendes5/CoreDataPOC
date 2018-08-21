@@ -2,7 +2,7 @@
 //  Pokemon+CoreDataProperties.swift
 //  
 //
-//  Created by João Mendes | Stone on 17/08/18.
+//  Created by João Mendes | Stone on 20/08/18.
 //
 //
 
@@ -16,6 +16,7 @@ extension Pokemon {
         return NSFetchRequest<Pokemon>(entityName: "Pokemon")
     }
 
+    @NSManaged public var id: Int16
     @NSManaged public var name: String?
 
 }

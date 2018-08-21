@@ -7,5 +7,7 @@ target 'CoreDataPOC' do
 
   # Pods for CoreDataPOC
   pod 'Moya'
+  pod 'SwiftMessages'
+  pod 'PKHUD', '~> 5.0'
 
 end

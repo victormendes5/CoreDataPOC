@@ -9,5 +9,6 @@
 import Foundation
 
 public struct PokemonListModel: Codable {
+    var id: Int
     var name: String
 }

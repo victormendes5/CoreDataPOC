@@ -10,6 +10,6 @@ import Foundation
 import CoreData
 
 @objc(Pokemon)
-public class Pokemon: NSManagedObject {
+@objcMembers public class Pokemon: NSManagedObject {
 
 }

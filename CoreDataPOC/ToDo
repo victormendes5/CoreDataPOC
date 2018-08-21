@@ -1,10 +1,9 @@
 
 ToDo
 
-- First
     - Removes methods from ViewController and uses delegates instead
     - KVO
     - Abstracts methods to receive any kind of objects
+    - Check status code to check internet or API error
 
-- Second
     - Puts all entities to external framework

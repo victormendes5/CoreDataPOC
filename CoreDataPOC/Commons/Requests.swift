@@ -15,11 +15,11 @@ public enum Requests {
 
 extension Requests: TargetType {
     public var baseURL: URL {
-        return URL(string: "http://pokeapi.co")!
+        return URL(string: "http://private-4ab845-test11663.apiary-mock.com")!
     }
     
     public var path: String {
-        return "/api/v2/pokemon"
+        return "/listAll"
     }
     
     public var method: Moya.Method {
